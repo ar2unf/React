@@ -1,28 +1,28 @@
-
-const webpack = require('webpack');
-
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 module.exports = {
-   entry: {
-       app: './index.jsx',
-   },
-   context: `${__dirname}/static_src`,
-   output: {
-       path: `${__dirname}/static/build`,
-       filename: 'app.js',
-       publicPath: '/static/build/',
-   },
-
-   module: {
-       rules: [
-           {
-               test: /\.(js|jsx)$/,
-               include: `${__dirname}/static_src`,
-               loader: 'babel-loader',
-               exclude: /node_modules/,
-               query: {
-                 presets: ['@babel/react','@babel/env'],
-               }
-           },
-       ],
-   },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader"
+          }
+        ]
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: "./src/index.html",
+      filename: "./index.html"
+    })
+  ]
 };
