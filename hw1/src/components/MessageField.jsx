@@ -42,9 +42,10 @@ export default class MessageField extends React.Component {
            <Message key={ index } text={ message.text } senderId ={message.senderId} />));
 
        return <div>
+       <button onClick={ this.handleSendMesage }>Отправить сообщение</button>
        <h1>Чат</h1>
            <div >{ messageElements }</div>
-           <button onClick={ this.handleSendMesage }>Отправить сообщение</button>
+           
        </div>
    }
 }
