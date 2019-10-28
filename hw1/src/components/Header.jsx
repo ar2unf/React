@@ -1,15 +1,30 @@
+
 import React from 'react';
-import AppBar from 'material-ui/AppBar';
+import PropTypes from "prop-types";
+import { Link } from 'react-router-dom'
+import { List, ListItem } from 'material-ui/List';
+import ContentReport from 'material-ui/svg-icons/content/report';
 
-/**
- * A simple example of `AppBar` with an icon on the right.
- * By default, the left icon is a navigation-menu.
- */
-const header = () => (
-  <AppBar className ="header"
-    title="Чат"
-    iconClassNameRight="muidocs-icon-navigation-expand-more"
-  />
-);
 
-export default header;
+export default class Header extends React.Component {
+   static propTypes = {
+       chatId: PropTypes.number,
+   };
+
+   /**static defaultProps = {
+       chatId: 2,
+   };*/
+
+   render() {
+       return (
+           <div className="header">
+           <Link to="/profile/">
+                  <ListItem primaryText="Профиль" leftIcon={<ContentReport />} />
+               </Link>
+               <span style={ { fontSize: '20px' } }>Чат { this.props.chatId }</span>
+           </div>
+
+           
+       )
+   }
+}

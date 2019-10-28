@@ -1,33 +1,53 @@
 import React from 'react';
-import Avatar from 'material-ui/Avatar';
-import {List, ListItem} from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
-import CommunicationChatBubble from 'material-ui/svg-icons/communication/chat-bubble';
+import PropTypes from "prop-types";
+import { Link } from 'react-router-dom'
+import { List, ListItem } from 'material-ui/List';
+import ContentSend from 'material-ui/svg-icons/content/send';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 
-const ListChat = () => (
-    <List className="layout">
-      <Subheader>Открытые Чаты</Subheader>
-      <ListItem
-        primaryText="Test1"
-        leftAvatar={<Avatar src="https://picsum.photos/536/354" />}
-        rightIcon={<CommunicationChatBubble />}
-      />
-      <ListItem
-        primaryText="Test2"
-        leftAvatar={<Avatar src="https://picsum.photos/536/354" />}
-        rightIcon={<CommunicationChatBubble />}
-      />
-      <ListItem
-        primaryText="Test3"
-        leftAvatar={<Avatar src="https://picsum.photos/536/354" />}
-        rightIcon={<CommunicationChatBubble />}
-      />
-      <ListItem
-        primaryText="Test4"
-        leftAvatar={<Avatar src="https://picsum.photos/536/354" />}
-        rightIcon={<CommunicationChatBubble />}
-      />
-    </List>
-);
 
-export default ListChat;
+
+
+export default class ChatList extends React.Component {
+  static propTypes = {
+    
+    listChat: PropTypes.object.isRequired,
+};
+static defaultProps = {
+  listChat:{
+      1: {title: 'Чат ', messageList: [1], }, 
+      2: {title: 'Чат ', messageList: [2], },
+      3: {title: 'Чат ', messageList: [],  },
+  }
+};
+
+handleAddChat
+
+
+   render() {
+            const { listChat } = this.props;
+            const ChatElements = Object.keys(listChat).map((chat, index) => (
+                <Link to={`/chat/${chat}`} key={ chat }>
+                   <ListItem primaryText={listChat[chat].title} leftIcon={<ContentSend />} />
+               </Link>
+            ));
+           /* console.log (ChatElements);*/
+       return (
+         <div>
+         <List className="list" key ='ChatElements'>
+          {ChatElements}
+         </List>
+           <FloatingActionButton 
+              mini={true} className="button"
+              onClick={ () => this.props.handleAddChat() }
+              >
+              <ContentAdd />
+            </FloatingActionButton>
+
+         </div>
+           
+
+       )
+   }
+}
