@@ -15,7 +15,7 @@ export default class Layout extends React.Component {
 
    static defaultProps = {
        chatId: 1,
-       profile:0,
+       profile:0, // страница профайл или нет
    };
 
    state = {
@@ -30,6 +30,7 @@ export default class Layout extends React.Component {
     },
     input: '',
 };
+/**Добавление нового чата */
 handleAddChat = ()=>{
   const { chats } = this.state;
   const  chatId = Object.keys(chats).length + 1;
@@ -38,13 +39,11 @@ handleAddChat = ()=>{
   })
   console.log (this.state.chats)
 };
-
-
-
-
+/**изенеи стейта инпута */
 changeStateInput = (name, value)=>{
   this.setState ({[name]: value});
 };
+/**обработчик отправки сообщений */
 handleSendMessage = (message, sender) => {
   const { messages, chats, input } = this.state;
   const { chatId } = this.props;
@@ -94,7 +93,6 @@ handleSendMessage = (message, sender) => {
             </div>
         </div>
     )
-
      }
        
    }

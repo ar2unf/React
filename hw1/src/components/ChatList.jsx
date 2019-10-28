@@ -26,28 +26,24 @@ handleAddChat
 
 
    render() {
-            const { listChat } = this.props;
-            const ChatElements = Object.keys(listChat).map((chat, index) => (
-                <Link to={`/chat/${chat}`} key={ chat }>
-                   <ListItem primaryText={listChat[chat].title} leftIcon={<ContentSend />} />
-               </Link>
-            ));
-           /* console.log (ChatElements);*/
+      const { listChat } = this.props;
+      const ChatElements = Object.keys(listChat).map((chat, index) => (
+        <Link to={`/chat/${chat}`} key={ chat }>
+          <ListItem primaryText={listChat[chat].title} leftIcon={<ContentSend />} />
+        </Link>
+      ));
+           
        return (
          <div>
          <List className="list" key ='ChatElements'>
-          {ChatElements}
+            {ChatElements}
          </List>
            <FloatingActionButton 
               mini={true} className="button"
-              onClick={ () => this.props.handleAddChat() }
-              >
+              onClick={ () => this.props.handleAddChat() }>
               <ContentAdd />
             </FloatingActionButton>
-
          </div>
-           
-
        )
    }
 }

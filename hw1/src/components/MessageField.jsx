@@ -35,11 +35,11 @@ componentDidUpdate(prevProps, prevState) {
             this.props.handleSendMessage('Не приставай ко мне, я робот!', 'bot'), 1000);
     }
   }
-
+/** вызываем функцию родителя для обновления стейта */
    handleChange = (event) => {
        this.props.changeStateInput(event.target.name, event.target.value );
    };
-
+/** вызываем функци рожителя для отправки сообщения */
    handleKeyUp = (event) => {
     console.log(this.props.state.input);
        if (event.keyCode === 13) { // Enter
