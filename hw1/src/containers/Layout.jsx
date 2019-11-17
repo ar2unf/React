@@ -70,7 +70,7 @@ class Layout extends React.Component {
                <Header chats={ this.props.chats } />
                <div className="layout-canvas">
                    <div className="layout-left-side">
-                       <ChatList />
+                       <ChatList/>
                    </div>
                    <div className="layout-right-side">
                         <MessageField

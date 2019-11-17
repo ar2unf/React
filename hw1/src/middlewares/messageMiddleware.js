@@ -1,4 +1,4 @@
-import { SEND_MESSAGE, sendMessage } from "../actions/messageActions";
+import { SEND_MESSAGE, sendMessage } from "../actions/messageActions.js";
 
 export default store => next => (action) => {
    switch (action.type) {

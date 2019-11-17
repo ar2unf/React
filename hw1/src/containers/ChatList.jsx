@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import connect from "react-redux/es/connect/connect";
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import { List, ListItem } from 'material-ui/List';
 import { TextField } from 'material-ui';
 import AddIcon from 'material-ui/svg-icons/content/add';
 import ContentSend from 'material-ui/svg-icons/content/send';
 import { push } from 'connected-react-router';
-import { addChat } from '../actions/chatActions';
+import { addChat } from '../actions/chatActions.js';
 
 
 
