@@ -32,16 +32,16 @@ class Layout extends React.Component {
        },
    };
 
-   componentDidUpdate(prevProps, prevState) {
+  /* componentDidUpdate(prevProps, prevState) {
        const { messages } = this.state;
        if (Object.keys(prevState.messages).length < Object.keys(messages).length &&
            Object.values(messages)[Object.values(messages).length - 1].sender === 'me') {
            setTimeout(() =>
                this.sendMessage('Не приставай ко мне, я робот!', 'bot'), 1000);
        }
-   }
+   }*/
 
-   sendMessage = (message, sender) => {
+   /*sendMessage = (message, sender) => {
     const { messages } = this.state;
     const { chatId } = this.props;
 
@@ -52,7 +52,7 @@ class Layout extends React.Component {
     });
     this.props.sendMessage(messageId, message, sender, chatId);
 };
-
+*/
    addChat = (title) => {
     const { chats } = this.state;
 
@@ -67,14 +67,10 @@ class Layout extends React.Component {
    render() {
        return (
            <div className="layout">
-               <Header chatId={ this.props.chatId } />
+               <Header chats={ this.props.chats } />
                <div className="layout-canvas">
                    <div className="layout-left-side">
-                       <ChatList 
-                             /* chats={ this.state.chats }
-                           addChat={ this.addChat }*/
-
-                        />
+                       <ChatList/>
                    </div>
                    <div className="layout-right-side">
                         <MessageField
